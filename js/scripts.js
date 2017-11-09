@@ -14,10 +14,14 @@ for (i=0 ; i < data.results.length ; i++){
 final +='<div class="col-lg-4 col-12 " >';
 final +='<h2>' + data.results[i].title +'</h2> </br>';
 final +='<p>' + data.results[i].opening_crawl + '</p>';
+
+final +='<button type="button" class="btn btn-primary" data-title="Episodio :  '+data.results[i].episode_id+'"  data-contenido= "<b><i>Estreno</i></b> : '+data.results[i].release_date+' <br><br> <b><i>Director</i></b> :  '+data.results[i].director+' <br><br> <b><i>Productor</i></b> :  '+data.results[i].producer+'<br><br> <b><i>Personajes</i></b> :  ';
 for (var j=0; j<data.results[i].characters.length ; j++){
-    carga+= cargarPersonajes(data.results[i].characters[j])+ ', ';
- }
-final +='<button type="button" class="btn btn-primary" data-title="Episodio :  '+data.results[i].episode_id+'"  data-contenido= "<b><i>Estreno</i></b> : '+data.results[i].release_date+' <br><br> <b><i>Director</i></b> :  '+data.results[i].director+' <br><br> <b><i>Productor</i></b> :  '+data.results[i].producer+'<br><br> <b><i>Personajes</i></b> :  '+carga+' "     data-toggle="modal" data-target="#exampleModalLong">Detalles</button>';
+    carga= cargarPersonajes(data.results[i].characters[j])+ ', ';
+    final +=carga ;
+}
+final+=' "     data-toggle="modal" data-target="#exampleModalLong">Detalles</button>';
+
 final +='</div>';
 }
 $('#primero').html(final); 
